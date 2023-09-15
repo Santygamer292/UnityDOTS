@@ -119,11 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d53c35d90cabb144b289f96a7a8ded8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponMuzzle: {fileID: 6145509227618105966}
   hittableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   bulletHolePrefab: {fileID: 2894527276655812987, guid: 16b10c3df27fd584a82c1d497286a8da, type: 3}
   fireRange: 200
+  recoilForce: 4
+  flashEffect: {fileID: 1304148790070481661, guid: ecb7e204d402a6b40918d52a2f8e3989, type: 3}
 --- !u!114 &-3207122363959600216
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class WeaponController : MonoBehaviour
     [Header("Sounds & Visuals")]
     public GameObject flashEffect;
 
+    public GameObject owner { set; get; }
+
     private Transform cameraPlayerTransform;
 
 
@@ -33,6 +35,7 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
         currentAmmo = maxAmmo;
+        EventManager.current.UpdateBulletsEvent.Invoke(currentAmmo, maxAmmo);
     }
 
     private void Start()
@@ -63,6 +66,7 @@ public class WeaponController : MonoBehaviour
             {
                 HandleShoot();
                 currentAmmo -= 1;
+                EventManager.current.UpdateBulletsEvent.Invoke(currentAmmo, maxAmmo);
                 return true;
             }
         }
@@ -77,12 +81,17 @@ public class WeaponController : MonoBehaviour
 
         AddRecoil();
 
-        RaycastHit hit;
-        if (Physics.Raycast(cameraPlayerTransform.position, cameraPlayerTransform.forward, out hit, fireRange, hittableLayers))
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(cameraPlayerTransform.position, cameraPlayerTransform.forward, fireRange, hittableLayers);
+        foreach(RaycastHit hit in hits) 
         {
-            GameObject bulletHoleClone = Instantiate(bulletHolePrefab, hit.point + hit.normal * 0.001f, Quaternion.LookRotation(hit.normal));
-            Destroy(bulletHoleClone, 4f);
+            if (hit.collider.gameObject != owner) 
+            {
+                GameObject bulletHoleClone = Instantiate(bulletHolePrefab, hit.point + hit.normal * 0.001f, Quaternion.LookRotation(hit.normal));
+                Destroy(bulletHoleClone, 4f);
+            }
         }
+
 
             lastTimeShoot = Time.time;
     }
@@ -99,6 +108,7 @@ public class WeaponController : MonoBehaviour
         Debug.Log("Recargando...");
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
+        EventManager.current.UpdateBulletsEvent.Invoke(currentAmmo, maxAmmo);
         Debug.Log("Recargada");
         //TODO terminar la animacion
     }

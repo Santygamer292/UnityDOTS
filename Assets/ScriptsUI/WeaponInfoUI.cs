@@ -31,4 +31,4 @@ public class WeaponInfo_UI : MonoBehaviour
         currentBullets.text = newCurrentBullets.ToString();
         totalBullets.text = newTotalBullets.ToString();
     }
-} 
+}

@@ -9,7 +9,6 @@ public class Bool1Event : UnityEvent<bool> { }
 public class Int2Event : UnityEvent<int, int> { }
 public class String1Sprite1Event : UnityEvent<string, Sprite> { }
 
-
 public class EventManager : MonoBehaviour
 {
     #region Signgleton

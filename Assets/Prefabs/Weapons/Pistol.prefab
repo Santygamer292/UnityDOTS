@@ -129,7 +129,7 @@ MonoBehaviour:
   fireRate: 0.5
   maxAmmo: 20
   reloadTime: 0.7
-  flashEffect: {fileID: 954247290851937060, guid: 11e96711e5ca4eb41aa2b72cc098da87, type: 3}
+  flashEffect: {fileID: 1304148790070481661, guid: ecb7e204d402a6b40918d52a2f8e3989, type: 3}
 --- !u!114 &-3207122363959600216
 MonoBehaviour:
   m_ObjectHideFlags: 0

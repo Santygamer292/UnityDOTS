@@ -83,12 +83,20 @@ public class WeaponController : MonoBehaviour
 
         RaycastHit[] hits;
         hits = Physics.RaycastAll(cameraPlayerTransform.position, cameraPlayerTransform.forward, fireRange, hittableLayers);
-        foreach(RaycastHit hit in hits) 
+
+        foreach (RaycastHit hit in hits) 
         {
+            TowerControler daño = hit.transform.GetComponent<TowerControler>();
             if (hit.collider.gameObject != owner) 
             {
                 GameObject bulletHoleClone = Instantiate(bulletHolePrefab, hit.point + hit.normal * 0.001f, Quaternion.LookRotation(hit.normal));
                 Destroy(bulletHoleClone, 4f);
+                if(daño != null) 
+                {
+                    daño.dañotorre();
+                }
+
+
             }
         }
 

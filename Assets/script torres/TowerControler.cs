@@ -6,15 +6,20 @@ using UnityEngine.UI;
 public class TowerControler : MonoBehaviour
 {
     public int vidatorre;
-    public Slider barravidatorre;
     public GameObject torrePrefab1;
     public GameObject torrePrefab2;
     public GameObject torrePrefab3;
     public GameObject torrePrefab4;
 
-    void Update()
+    private Slider barravidatorre;
+
+    void Start()
     {
-        dañotorre();
+        // Encuentra la referencia al Slider en el Prefab de la torre.
+        barravidatorre = GetComponentInChildren<Slider>();
+
+        // Configura el valor inicial del Slider.
+        barravidatorre.value = vidatorre;
     }
 
     void InstanciarNuevaTorre(GameObject torrePrefab)
@@ -22,10 +27,11 @@ public class TowerControler : MonoBehaviour
         Instantiate(torrePrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
-     public void dañotorre() 
+
+    public void DañarTorre(int cantidadDanio)
     {
+        vidatorre -= cantidadDanio;
         barravidatorre.value = vidatorre;
-        vidatorre = vidatorre - 10;
 
         switch (vidatorre)
         {
@@ -42,6 +48,7 @@ public class TowerControler : MonoBehaviour
                 InstanciarNuevaTorre(torrePrefab4);
                 break;
         }
-    } 
+    }
 }
+
 

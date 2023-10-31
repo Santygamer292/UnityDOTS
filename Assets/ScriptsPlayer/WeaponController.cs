@@ -93,7 +93,7 @@ public class WeaponController : MonoBehaviour
                 Destroy(bulletHoleClone, 4f);
                 if(daño != null) 
                 {
-                    daño.dañotorre();
+                    daño.DañarTorre(2);
                 }
 
 

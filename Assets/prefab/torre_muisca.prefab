@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidatorre: 100
   barravidatorre: {fileID: 2510312573766669884}
-  torrePrefab1: {fileID: 2578559652317811366}
+  torrePrefab1: {fileID: 919132149155446097, guid: 67377cea1984b324cbf667e5101ad0b2, type: 3}
   torrePrefab2: {fileID: 5683338326586262157, guid: b09e26ca03114dc479682e4d481eca29, type: 3}
   torrePrefab3: {fileID: 5665316673801239688, guid: d9da79b39260f0d41a3ae1ea7936c359, type: 3}
   torrePrefab4: {fileID: 5665316673801239688, guid: d9da79b39260f0d41a3ae1ea7936c359, type: 3}

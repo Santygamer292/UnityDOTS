@@ -16,7 +16,7 @@ public class WeaponController : MonoBehaviour
     public float fireRange = 200;
     public float recoilForce = 4f; //Fuerza de retroceso del arma
     public float fireRate = 0.6f;
-    public int maxAmmo = 8;
+    public int maxAmmo = 20;
 
     [Header("Reload Parameters")]
     public float reloadTime = 1.5f;
@@ -93,7 +93,7 @@ public class WeaponController : MonoBehaviour
                 Destroy(bulletHoleClone, 4f);
                 if(daño != null) 
                 {
-                    daño.DañarTorre(2);
+                    daño.DañarTorre(7);
                 }
 
 

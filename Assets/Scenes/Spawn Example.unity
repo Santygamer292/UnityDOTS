@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EspanolPrefab: {fileID: 4802419524269118036, guid: cc6d3fcbd97cae9498be49e09b8df8e0, type: 3}
-  NumEspanol: 2000
+  NumEspanol: 10000
   Bounds: {x: 100, y: 100}
 --- !u!1 &1523694672
 GameObject:

@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public GameObject EspanolPrefab;
     public int NumEspanol;
     public Vector2 Bounds;
+    public Transform spawnPoint; // Objeto vacío que sirve como punto de aparición
 
     public void Start()
     {
@@ -20,8 +21,11 @@ public class Spawner : MonoBehaviour
             Espanol espanol = go.GetComponent<Espanol>();
             Vector2 dir = Random.insideUnitCircle;
             espanol.Direction = new Vector3(dir.x, 0, dir.y);
-            go.transform.localPosition = new Vector3(
-                Random.Range(0, Bounds.x), 0, Random.Range(0, Bounds.y));
+
+            // Utiliza la posición del objeto vacío como punto de aparición
+            go.transform.position = spawnPoint.position + new Vector3(
+                Random.Range(-Bounds.x, Bounds.x), 0, Random.Range(-Bounds.y, Bounds.y));
         }
     }
 }
+

@@ -119,10 +119,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   bulletHolePrefab: {fileID: 2894527276655812987, guid: 16b10c3df27fd584a82c1d497286a8da, type: 3}
-  fireRange: 150
-  recoilForce: 7
-  fireRate: 1.2
-  maxAmmo: 12
+  fireRange: 100
+  recoilForce: 10
+  fireRate: 1.5
+  maxAmmo: 8
   reloadTime: 3
   flashEffect: {fileID: 7090061095059260125, guid: 93dec08d8c5675d479cfebe8830e6c67, type: 3}
 --- !u!114 &6761753251203019125

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67f07b789686364bac1edf59c983e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Direction: {x: 0, y: 0, z: 0}
+  Direction: {x: 0, y: 0, z: 10}
 --- !u!136 &-34039295244863187
 CapsuleCollider:
   m_ObjectHideFlags: 0

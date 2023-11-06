@@ -17,17 +17,19 @@ public class walkstate : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        agent = animator.GetComponent<NavMeshAgent>();
         timer = 0;
+        int counter = 0;
         Transform wayPointsObject = GameObject.FindGameObjectWithTag("WayPoints").transform;
         GameObject go = GameObject.FindGameObjectWithTag("WayPoints");
 
-        foreach (Transform t in wayPointsObject)
+        foreach (Transform t in go.transform) // in wayPointsObject
         {
             waypoints.Add(t);
         }
 
-        agent = animator.GetComponent<NavMeshAgent>();
-        agent.SetDestination(waypoints[0].position);
+        
+        agent.SetDestination(waypoints[counter].position);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         muisca = GameObject.FindGameObjectWithTag("Muisca").transform;
     }
@@ -35,6 +37,17 @@ public class walkstate : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        int counter = 0;
+        if (counter == 0) 
+        {
+            agent.SetDestination(waypoints[counter].position);
+        }
+        counter++;
+        if (counter > waypoints.Count) 
+        {
+            counter = 0;
+        }
+
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             agent.SetDestination(waypoints[Random.Range(0, waypoints.Count)].position);
@@ -43,7 +56,7 @@ public class walkstate : StateMachineBehaviour
         timer += Time.deltaTime;
         if (timer > 8)
         {
-            animator.SetBool("Patrullando", false);
+            animator.SetBool("Patrullando", false); 
         }
 
         float distance = Vector3.Distance(animator.transform.position, player.position);

@@ -23,12 +23,12 @@ public class chasestate : StateMachineBehaviour
     {
         agent.SetDestination(player.position);
         float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance < 200)
+        if (distance < 50)
         {
             animator.SetBool("Atacar", true);
         }
         float distance2 = Vector3.Distance(animator.transform.position, muisca.position);
-        if (distance2 < 200)
+        if (distance2 < 50)
         {
             animator.SetBool("Atacar", true);
         }
